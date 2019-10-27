@@ -34,9 +34,9 @@ new Vue({
 			]
 		},	
 		methods: {
-			changeParam: function(event){
+			changeParam: function(){
 				var select = document.getElementById('selectKm').options.selectedIndex;
-				var inputeData = event.target.value;
+				var inputeData = document.getElementById('inputeData').value;
 
 				//   из л на км
 				if (select == 1){
@@ -138,110 +138,6 @@ new Vue({
 					this.result9 ='0';
 					this.result10 ='0';
 				}
-			},
-
-			changeSelect: function(){
-				var select = document.getElementById('selectKm').options.selectedIndex;
-				var inputeData = document.getElementById('inputeData').value;
-				if (select == 1){
-					this.result1 = inputeData;
-					this.result2 = (inputeData*10).toFixed(3);
-					this.result3 = (inputeData*100).toFixed(3);
-					this.result4 = (1/inputeData).toFixed(3);
-					this.result6 = (mINkm/(inputeData*gINl)).toFixed(3);
-					this.result7 = (100*(inputeData*gINl)/mINkm).toFixed(3);
-					this.result9 = (mINkm/(inputeData*agINl)).toFixed(3);
-					this.result10 = (100*(inputeData*agINl)/mINkm).toFixed(3);
-				}
-
-				if (select == 2){
-					this.result1 = (inputeData/10).toFixed(3);
-					this.result2 = inputeData;
-					this.result3 = (inputeData*10).toFixed(3);
-					this.result4 = (10/inputeData).toFixed(3);
-					this.result6 = (mINkm*10/(inputeData*gINl)).toFixed(3);
-					this.result7 = (10*(inputeData*gINl)/mINkm).toFixed(3);
-					this.result9 = (mINkm*10/(inputeData*agINl)).toFixed(3);
-					this.result10 = (10*(inputeData*agINl)/mINkm).toFixed(3);
-				}
-
-				if (select == 3){
-					this.result1 = (inputeData/100).toFixed(3);
-					this.result2 = (inputeData/10).toFixed(3);
-					this.result3 = inputeData;
-					this.result4 = (100/inputeData).toFixed(3);
-					this.result6 = (mINkm*100/(inputeData*gINl)).toFixed(3);
-					this.result7 = ((inputeData*gINl)/mINkm).toFixed(3);
-					this.result9 = (mINkm*100/(inputeData*agINl)).toFixed(3);
-					this.result10 = ((inputeData*agINl)/mINkm).toFixed(3);
-				}
-
-				if (select == 4){
-					this.result1 = (1/inputeData).toFixed(3);
-					this.result2 = (10/inputeData).toFixed(3);
-					this.result3 = (100/inputeData).toFixed(3);
-					this.result4 = inputeData;
-					this.result6 = (inputeData*lINg/kmINm).toFixed(3);
-					this.result7 = (kmINm*100/(inputeData*lINg)).toFixed(3);
-					this.result9 = (inputeData*lINag/kmINm).toFixed(3);
-					this.result10 = (kmINm*100/(inputeData*lINag)).toFixed(3);
-				}
-
-				if (select == 6){
-					this.result1 = (lINg/(inputeData*kmINm)).toFixed(3);
-					this.result2 = (lINg*10/(inputeData*kmINm)).toFixed(3);
-					this.result3 = (lINg*100/(inputeData*kmINm)).toFixed(3);
-					this.result4 = (inputeData*kmINm/lINg).toFixed(3);
-					this.result6 = inputeData;
-					this.result7 = (100/inputeData).toFixed(3);
-					this.result9 = (inputeData*gINag).toFixed(3);
-					this.result10 = (100/(inputeData*gINag)).toFixed(3);
-				}
-
-				if (select == 7){
-					this.result1 = (inputeData*lINg/kmINm/100).toFixed(3);
-					this.result2 = (inputeData*lINg/kmINm/10).toFixed(3);
-					this.result3 = (inputeData*lINg/kmINm).toFixed(3);
-					this.result4 = (kmINm*100/inputeData/lINg).toFixed(3);
-					this.result6 = (100/(inputeData)).toFixed(3);
-					this.result7 = inputeData;
-					this.result9 = (100/(inputeData*agINg)).toFixed(3);
-					this.result10 = (inputeData*agINg).toFixed(3);
-				}
-
-				if (select == 9){
-					this.result1 = (lINag/inputeData/kmINm).toFixed(3);
-					this.result2 = (10*lINag/inputeData/kmINm).toFixed(3);
-					this.result3 = (100*lINag/inputeData/kmINm).toFixed(3);
-					this.result4 = (inputeData*kmINm/lINag).toFixed(3);
-					this.result6 = (inputeData*agINg).toFixed(3);
-					this.result7 = (100/inputeData/agINg).toFixed(3);
-					this.result9 = inputeData;
-					this.result10 = (100/inputeData).toFixed(3);
-				}
-
-				if (select == 10){
-					this.result1 = (inputeData*lINag/kmINm/100).toFixed(3);
-					this.result2 = (inputeData*lINag/kmINm/10).toFixed(3);
-					this.result3 = (inputeData*lINag/kmINm).toFixed(3);
-					this.result4 = (100*kmINm/inputeData/lINag).toFixed(3);
-					this.result6 = (100/inputeData*agINg).toFixed(3);
-					this.result7 = (inputeData*gINag).toFixed(3);
-					this.result9 = (100/inputeData).toFixed(3);
-					this.result10 = inputeData;
-				}
-
-				if(inputeData=='' || !(inputeData*1>=0) || inputeData =='0'){
-					this.result1 ='0';
-					this.result2 ='0';
-					this.result3 ='0';
-					this.result4 ='0';
-					this.result6 ='0';
-					this.result7 ='0';
-					this.result9 ='0';
-					this.result10 ='0';
-				}
-			}
-
+			},		
 		}
 	})

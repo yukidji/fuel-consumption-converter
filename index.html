@@ -15,7 +15,7 @@
 			<input type="text" name="inputData" v-on:input ="changeParam" id="inputeData">
 			
 
-			<select id='selectKm' v-on:click ="changeSelect">
+			<select id='selectKm' v-on:click ="changeParam">
 				<option v-for="option in options" v-bind:value="option.value" v-bind:disabled="option.disabled">
     				{{ option.text }}
   				</option>
