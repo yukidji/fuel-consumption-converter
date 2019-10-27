@@ -16,17 +16,9 @@
 			
 
 			<select id='selectKm' v-on:click ="changeSelect">
-				<option disabled="disabled">Метрический</option>
-	  			<option value="1">Литров на км</option>
-			  	<option value="2">Литров на 10 км</option>
-	  			<option value="3">Литров на 100 км</option>
-			  	<option value="4">Километров на литр</option>
-	  			<option disabled="disabled">US (США)</option>
-			  	<option value="6">Миль на галон</option>
-			  	<option value="7">Галонов на 100 миль</option>
-			  	<option disabled="disabled">UK (Англия)</option>
-			  	<option value="9">Миль на галон</option>
-			  	<option value="10">Галонов на 100 миль</option>
+				<option v-for="option in options" v-bind:value="option.value" v-bind:disabled="option.disabled">
+    				{{ option.text }}
+  				</option>
 			</select>
 		</div>
 

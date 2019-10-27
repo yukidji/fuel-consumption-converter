@@ -17,7 +17,21 @@ new Vue({
 			result6:'0',
 			result7:'0',
 			result9:'0',
-			result10:'0',	
+			result10:'0',
+
+			options:[
+				{text:'Метрический', disabled:'disabled'},
+				{text:'Литров на км', value:'1'},
+				{text:'Литров на 10 км', value:'2'},
+				{text:'Литров на 100 км', value:'3'},
+				{text:'Километров на литр', value:'4'},
+				{text:'US (США)', disabled: 'disabled'},
+				{text:'Миль на галон', value:'6'},
+				{text:'Галонов на 100 миль', value:'7'},
+				{text:'UK (Англия)', disabled: 'disabled'},
+				{text:'Миль на галон', value:'9'},
+				{text:'Галонов на 100 миль', value:'10'}
+			]
 		},	
 		methods: {
 			changeParam: function(event){
