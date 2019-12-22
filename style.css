@@ -5,19 +5,18 @@
 body{
 	background: #d1eda1;
 	display: flex;
-	/*align-items: center;*/
-	/*align-content: center;*/ 
     justify-content: center; 
-    height: 100vh;/*vh - viewport height */
+    height: 100vh;/*vh - viewport height чтобы #content растянулось на всю высотту 
+    				экрана, при увиличении экрана это не помогает*/
 }
 
 #content {
-	/*height: 100%;*/
 	padding: 10px;
 	width: 60%;
 	background: white;
-	/*border: 1px solid black;*/
 	font-size: 20px;
+	border-left: 3px double #C4C2C2;
+	border-right: 3px double #C4C2C2;		
 }
 
 h1{
@@ -90,4 +89,33 @@ select:hover{
 	display: inline-block;
 	text-align: right;
 	color: #50780b;
+}
+
+#content2{
+	margin-top: 40px; 
+	width: 100%;
+	/*border: 1px solid black;*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+}
+
+a{
+	text-decoration: none;
+	color: white;
+}
+
+#nextExamle{
+	text-align: center;
+	color: white;
+	font-family: DejaVu Sans Mono, monospace;
+	font-weight: bold;
+	padding: 5px;
+ 	width: 30%;
+ 	border: 3px solid #6e9c1f;
+ 	border-radius: 30px;
+ 	height: auto;
+ 	background-color: #681693;
+
 }
