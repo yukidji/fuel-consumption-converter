@@ -89,6 +89,7 @@ select:hover{
 	display: inline-block;
 	text-align: right;
 	color: #50780b;
+	padding-right: 10px; 
 }
 
 #content2{
@@ -106,16 +107,16 @@ a{
 	color: white;
 }
 
-#nextExamle{
+#back{
+	margin: 10px;
 	text-align: center;
 	color: white;
 	font-family: DejaVu Sans Mono, monospace;
 	font-weight: bold;
 	padding: 5px;
- 	width: 30%;
+ 	width: 100px;
  	border: 3px solid #6e9c1f;
  	border-radius: 30px;
  	height: auto;
  	background-color: #681693;
-
 }
