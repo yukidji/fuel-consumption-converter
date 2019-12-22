@@ -89,6 +89,7 @@ select:hover{
 	display: inline-block;
 	text-align: right;
 	color: #50780b;
+	padding-right: 10px; 
 }
 
 #content2{
@@ -126,7 +127,7 @@ nav{
 	padding: 30px;
 }
 
-a nav{
+nav a{
   text-decoration: none;
   background: #333;
   border-radius: 5px;
