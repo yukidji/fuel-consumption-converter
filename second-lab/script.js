@@ -7,6 +7,9 @@ var lINag = 4.54609;
 var agINg = 0.83267;
 var gINag = 1.20095;
 
+$(document).ready(function(){
+	
+})
 new Vue({
 		el:'#content',
 		data: {
