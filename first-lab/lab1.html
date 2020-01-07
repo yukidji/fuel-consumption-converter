@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <title>Конверторы единиц</title>
+</head>
+
+<body>
+    <div id="content">
+        <h1>Конвертор расхода топлива</h1>
+        <div id="lable-inputData">Исходные данные:</div>
+        <div id='form-data'>
+            <input type="text" name="inputData" v-on:input="recalculation" id="inputData">
+            <select id='selectKm' v-on:click="recalculation">
+                <option v-for="option in options" v-bind:value="option.value" v-bind:disabled="option.disabled">
+                    {{ option.text }}
+                </option>
+            </select>
+        </div>
+        <div id='result'>
+            <p class='lable-result'><b>Метрический:</b></p>
+            <div class='poles-result'>
+                <div>
+                    <div class='data-result'>{{result1}}</div><span>Литров на км</span>
+                </div>
+                <div>
+                    <div class='data-result'>{{result2}}</div><span>Литров на 10 км</span>
+                </div>
+                <div>
+                    <div class='data-result'>{{result3}}</div><span>Литров на 100 км</span>
+                </div>
+                <div>
+                    <div class='data-result'>{{result4}}</div><span>Километров на литр</span>
+                </div>
+            </div>
+            <hr>
+            <p class='lable-result'><b>US (США):</b></p>
+            <div class='poles-result'>
+                <div>
+                    <div class='data-result'>{{result6}}</div><span>Миль на галон</span>
+                </div>
+                <div>
+                    <div class='data-result'>{{result7}}</div><span>Галонов на 100 миль</span>
+                </div>
+            </div>
+            <hr>
+            <p class='lable-result'><b>UK (Англия):</b></p>
+            <div class='poles-result'>
+                <div>
+                    <div class='data-result'>{{result9}}</div><span>Миль на галон</span>
+                </div>
+                <div>
+                    <div class='data-result'>{{result10}}</div><span>Галонов на 100 миль</span>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div id='back'>
+            <a href="../index.html">Назад</a>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
