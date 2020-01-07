@@ -34,101 +34,101 @@ new Vue({
 			]
 		},	
 		methods: {
-			changeParam: function(){
+			recalculation: function(){
 				var select = document.getElementById('selectKm').options.selectedIndex;
-				var inputeData = document.getElementById('inputeData').value;
+				var inputData = document.getElementById('inputData').value;
 
 				//   из л на км
 				if (select == 1){
-					this.result1 = inputeData; //л на км
-					this.result2 = (inputeData*10).toFixed(3); //галлонов на 100 миль (сша)
-					this.result3 = (inputeData*100).toFixed(3);//л на 100 км
-					this.result4 = (1/inputeData).toFixed(3); // км на л
-					this.result6 = (mINkm/(inputeData*gINl)).toFixed(3); // миль на галлон (сша)
-					this.result7 = (100*(inputeData*gINl)/mINkm).toFixed(3); //галлонов на 100 миль (сша)
-					this.result9 = (mINkm/(inputeData*agINl)).toFixed(3); // миль на галлон (англия)
-					this.result10 = (100*(inputeData*agINl)/mINkm).toFixed(3); //галлонов на 100 миль (англия)
+					this.result1 = inputData; //л на км
+					this.result2 = (inputData*10).toFixed(3); //л на 10 км
+					this.result3 = (inputData*100).toFixed(3);//л на 100 км
+					this.result4 = (1/inputData).toFixed(3); // км на л
+					this.result6 = (mINkm/(inputData*gINl)).toFixed(3); // миль на галлон (сша)
+					this.result7 = (100*(inputData*gINl)/mINkm).toFixed(3); //галлонов на 100 миль (сша)
+					this.result9 = (mINkm/(inputData*agINl)).toFixed(3); // миль на галлон (англия)
+					this.result10 = (100*(inputData*agINl)/mINkm).toFixed(3); //галлонов на 100 миль (англия)
 				}
 
 				//из литров на 10 км 
 				if (select == 2){
-					this.result1 = (inputeData/10).toFixed(3); //л на км
-					this.result2 = inputeData; //галлонов на 100 миль (сша)
-					this.result3 = (inputeData*10).toFixed(3); //л на 100 км
-					this.result4 = (10/inputeData).toFixed(3); // км на л
-					this.result6 = (mINkm*10/(inputeData*gINl)).toFixed(3); // миль на галлон (сша)
-					this.result7 = (10*(inputeData*gINl)/mINkm).toFixed(3); //галлонов на 100 миль (сша)
-					this.result9 = (mINkm*10/(inputeData*agINl)).toFixed(3); // миль на галлон (англия)
-					this.result10 = (10*(inputeData*agINl)/mINkm).toFixed(3); //галлонов на 100 миль (англия)
+					this.result1 = (inputData/10).toFixed(3); //л на км
+					this.result2 = inputData; //л на 10 км
+					this.result3 = (inputData*10).toFixed(3); //л на 100 км
+					this.result4 = (10/inputData).toFixed(3); // км на л
+					this.result6 = (mINkm*10/(inputData*gINl)).toFixed(3); // миль на галлон (сша)
+					this.result7 = (10*(inputData*gINl)/mINkm).toFixed(3); //галлонов на 100 миль (сша)
+					this.result9 = (mINkm*10/(inputData*agINl)).toFixed(3); // миль на галлон (англия)
+					this.result10 = (10*(inputData*agINl)/mINkm).toFixed(3); //галлонов на 100 миль (англия)
 				}
 
 				if (select == 3){
-					this.result1 = (inputeData/100).toFixed(3);
-					this.result2 = (inputeData/10).toFixed(3);
-					this.result3 = inputeData;
-					this.result4 = (100/inputeData).toFixed(3);
-					this.result6 = (mINkm*100/(inputeData*gINl)).toFixed(3);
-					this.result7 = ((inputeData*gINl)/mINkm).toFixed(3);
-					this.result9 = (mINkm*100/(inputeData*agINl)).toFixed(3);
-					this.result10 = ((inputeData*agINl)/mINkm).toFixed(3);
+					this.result1 = (inputData/100).toFixed(3);
+					this.result2 = (inputData/10).toFixed(3);
+					this.result3 = inputData;
+					this.result4 = (100/inputData).toFixed(3);
+					this.result6 = (mINkm*100/(inputData*gINl)).toFixed(3);
+					this.result7 = ((inputData*gINl)/mINkm).toFixed(3);
+					this.result9 = (mINkm*100/(inputData*agINl)).toFixed(3);
+					this.result10 = ((inputData*agINl)/mINkm).toFixed(3);
 				}
 
 				if (select == 4){
-					this.result1 = (1/inputeData).toFixed(3);
-					this.result2 = (10/inputeData).toFixed(3);
-					this.result3 = (100/inputeData).toFixed(3);
-					this.result4 = inputeData;
-					this.result6 = (inputeData*lINg/kmINm).toFixed(3);
-					this.result7 = (kmINm*100/(inputeData*lINg)).toFixed(3);
-					this.result9 = (inputeData*lINag/kmINm).toFixed(3);
-					this.result10 = (kmINm*100/(inputeData*lINag)).toFixed(3);
+					this.result1 = (1/inputData).toFixed(3);
+					this.result2 = (10/inputData).toFixed(3);
+					this.result3 = (100/inputData).toFixed(3);
+					this.result4 = inputData;
+					this.result6 = (inputData*lINg/kmINm).toFixed(3);
+					this.result7 = (kmINm*100/(inputData*lINg)).toFixed(3);
+					this.result9 = (inputData*lINag/kmINm).toFixed(3);
+					this.result10 = (kmINm*100/(inputData*lINag)).toFixed(3);
 				}
 
 				if (select == 6){
-					this.result1 = (lINg/(inputeData*kmINm)).toFixed(3);
-					this.result2 = (lINg*10/(inputeData*kmINm)).toFixed(3);
-					this.result3 = (lINg*100/(inputeData*kmINm)).toFixed(3);
-					this.result4 = (inputeData*kmINm/lINg).toFixed(3);
-					this.result6 = inputeData;
-					this.result7 = (100/inputeData).toFixed(3);
-					this.result9 = (inputeData*gINag).toFixed(3);
-					this.result10 = (100/(inputeData*gINag)).toFixed(3);
+					this.result1 = (lINg/(inputData*kmINm)).toFixed(3);
+					this.result2 = (lINg*10/(inputData*kmINm)).toFixed(3);
+					this.result3 = (lINg*100/(inputData*kmINm)).toFixed(3);
+					this.result4 = (inputData*kmINm/lINg).toFixed(3);
+					this.result6 = inputData;
+					this.result7 = (100/inputData).toFixed(3);
+					this.result9 = (inputData*gINag).toFixed(3);
+					this.result10 = (100/(inputData*gINag)).toFixed(3);
 				}
 
 				if (select == 7){
-					this.result1 = (inputeData*lINg/kmINm/100).toFixed(3);
-					this.result2 = (inputeData*lINg/kmINm/10).toFixed(3);
-					this.result3 = (inputeData*lINg/kmINm).toFixed(3);
-					this.result4 = (kmINm*100/inputeData/lINg).toFixed(3);
-					this.result6 = (100/(inputeData)).toFixed(3);
-					this.result7 = inputeData;
-					this.result9 = (100/(inputeData*agINg)).toFixed(3);
-					this.result10 = (inputeData*agINg).toFixed(3);
+					this.result1 = (inputData*lINg/kmINm/100).toFixed(3);
+					this.result2 = (inputData*lINg/kmINm/10).toFixed(3);
+					this.result3 = (inputData*lINg/kmINm).toFixed(3);
+					this.result4 = (kmINm*100/inputData/lINg).toFixed(3);
+					this.result6 = (100/(inputData)).toFixed(3);
+					this.result7 = inputData;
+					this.result9 = (100/(inputData*agINg)).toFixed(3);
+					this.result10 = (inputData*agINg).toFixed(3);
 				}
 
 				if (select == 9){
-					this.result1 = (lINag/inputeData/kmINm).toFixed(3);
-					this.result2 = (10*lINag/inputeData/kmINm).toFixed(3);
-					this.result3 = (100*lINag/inputeData/kmINm).toFixed(3);
-					this.result4 = (inputeData*kmINm/lINag).toFixed(3);
-					this.result6 = (inputeData*agINg).toFixed(3);
-					this.result7 = (100/inputeData/agINg).toFixed(3);
-					this.result9 = inputeData;
-					this.result10 = (100/inputeData).toFixed(3);
+					this.result1 = (lINag/inputData/kmINm).toFixed(3);
+					this.result2 = (10*lINag/inputData/kmINm).toFixed(3);
+					this.result3 = (100*lINag/inputData/kmINm).toFixed(3);
+					this.result4 = (inputData*kmINm/lINag).toFixed(3);
+					this.result6 = (inputData*agINg).toFixed(3);
+					this.result7 = (100/inputData/agINg).toFixed(3);
+					this.result9 = inputData;
+					this.result10 = (100/inputData).toFixed(3);
 				}
 
 				if (select == 10){
-					this.result1 = (inputeData*lINag/kmINm/100).toFixed(3);
-					this.result2 = (inputeData*lINag/kmINm/10).toFixed(3);
-					this.result3 = (inputeData*lINag/kmINm).toFixed(3);
-					this.result4 = (100*kmINm/inputeData/lINag).toFixed(3);
-					this.result6 = (100/inputeData*agINg).toFixed(3);
-					this.result7 = (inputeData*gINag).toFixed(3);
-					this.result9 = (100/inputeData).toFixed(3);
-					this.result10 = inputeData;
+					this.result1 = (inputData*lINag/kmINm/100).toFixed(3);
+					this.result2 = (inputData*lINag/kmINm/10).toFixed(3);
+					this.result3 = (inputData*lINag/kmINm).toFixed(3);
+					this.result4 = (100*kmINm/inputData/lINag).toFixed(3);
+					this.result6 = (100/inputData*agINg).toFixed(3);
+					this.result7 = (inputData*gINag).toFixed(3);
+					this.result9 = (100/inputData).toFixed(3);
+					this.result10 = inputData;
 				}
 
-				if(inputeData=='' || !(inputeData*1>=0) || inputeData =='0'){
+				if(!(inputData>0)){
 					this.result1 ='0';
 					this.result2 ='0';
 					this.result3 ='0';
