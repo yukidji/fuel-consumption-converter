@@ -24,6 +24,9 @@ const server = http.createServer((req, res) =>{
         case '/index.html':
             res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
             res.end(index);
+        default:
+            res.writeHead(404, {'Content-Type':'text/html; charset=utf-8'});
+            res.end('<h1 style="text-align: center">404 не найдено</h1>');
     }
     });
 
