@@ -1,6 +1,4 @@
 const http = require('http');
-//const url = require("url");
-//const path = require("path");
 const fs = require('fs');
 
 var index = fs.readFileSync('index.html', "utf8");
