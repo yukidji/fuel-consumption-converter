@@ -7,140 +7,134 @@ var lINag = 4.54609;
 var agINg = 0.83267;
 var gINag = 1.20095;
 
+var options = [
+	{text:'Метрический', disabled:'disabled'},
+	{text:'Литров на км', value:'1'},
+	{text:'Литров на 10 км', value:'2'},
+	{text:'Литров на 100 км', value:'3'},
+	{text:'Километров на литр', value:'4'},
+	{text:'US (США)', disabled: 'disabled'},
+	{text:'Миль на галон', value:'5'},
+	{text:'Галонов на 100 миль', value:'6'},
+	{text:'UK (Англия)', disabled: 'disabled'},
+	{text:'Миль на галон', value:'7'},
+	{text:'Галонов на 100 миль', value:'8'}
+];
+
 $(document).ready(function(){
-	
-})
-new Vue({
-		el:'#content',
-		data: {
-			result1:'0',
-			result2:'0',
-			result3:'0',
-			result4:'0',
-			result6:'0',
-			result7:'0',
-			result9:'0',
-			result10:'0',
+	/*цикл foreach с jquery селектором. работает так же как цикл ниже	
+	options.forEach(function(item, i, arr){
+		$('#selectKm').append('<option value="'+ arr[i].value +'" ' + arr[i].disabled+ '>' + arr[i].text + '</option>');
+	});*/
 
-			options:[
-				{text:'Метрический', disabled:'disabled'},
-				{text:'Литров на км', value:'1'},
-				{text:'Литров на 10 км', value:'2'},
-				{text:'Литров на 100 км', value:'3'},
-				{text:'Километров на литр', value:'4'},
-				{text:'US (США)', disabled: 'disabled'},
-				{text:'Миль на галон', value:'6'},
-				{text:'Галонов на 100 миль', value:'7'},
-				{text:'UK (Англия)', disabled: 'disabled'},
-				{text:'Миль на галон', value:'9'},
-				{text:'Галонов на 100 миль', value:'10'}
-			]
-		},	
-		methods: {
-			changeParam: function(){
-				var select = document.getElementById('selectKm').options.selectedIndex;
-				var inputeData = document.getElementById('inputeData').value;
+	/*цикл jquery с селектором jqury*/
+	$.each(options, function(index, value){
+		$('#selectKm').append('<option value="'+ value['value'] +'" ' + value['disabled'] + '>' + value['text'] + '</option>');
+	});
 
-				//   из л на км
-				if (select == 1){
-					this.result1 = inputeData; //л на км
-					this.result2 = (inputeData*10).toFixed(3); //галлонов на 100 миль (сша)
-					this.result3 = (inputeData*100).toFixed(3);//л на 100 км
-					this.result4 = (1/inputeData).toFixed(3); // км на л
-					this.result6 = (mINkm/(inputeData*gINl)).toFixed(3); // миль на галлон (сша)
-					this.result7 = (100*(inputeData*gINl)/mINkm).toFixed(3); //галлонов на 100 миль (сша)
-					this.result9 = (mINkm/(inputeData*agINl)).toFixed(3); // миль на галлон (англия)
-					this.result10 = (100*(inputeData*agINl)/mINkm).toFixed(3); //галлонов на 100 миль (англия)
-				}
+	$('#inputData').keyup(function(){
+		recalculation();
+	});
+	$('#selectKm').change(function(){
+		recalculation();
+	});
+});
 
-				//из литров на 10 км 
-				if (select == 2){
-					this.result1 = (inputeData/10).toFixed(3); //л на км
-					this.result2 = inputeData; //галлонов на 100 миль (сша)
-					this.result3 = (inputeData*10).toFixed(3); //л на 100 км
-					this.result4 = (10/inputeData).toFixed(3); // км на л
-					this.result6 = (mINkm*10/(inputeData*gINl)).toFixed(3); // миль на галлон (сша)
-					this.result7 = (10*(inputeData*gINl)/mINkm).toFixed(3); //галлонов на 100 миль (сша)
-					this.result9 = (mINkm*10/(inputeData*agINl)).toFixed(3); // миль на галлон (англия)
-					this.result10 = (10*(inputeData*agINl)/mINkm).toFixed(3); //галлонов на 100 миль (англия)
-				}
-
-				if (select == 3){
-					this.result1 = (inputeData/100).toFixed(3);
-					this.result2 = (inputeData/10).toFixed(3);
-					this.result3 = inputeData;
-					this.result4 = (100/inputeData).toFixed(3);
-					this.result6 = (mINkm*100/(inputeData*gINl)).toFixed(3);
-					this.result7 = ((inputeData*gINl)/mINkm).toFixed(3);
-					this.result9 = (mINkm*100/(inputeData*agINl)).toFixed(3);
-					this.result10 = ((inputeData*agINl)/mINkm).toFixed(3);
-				}
-
-				if (select == 4){
-					this.result1 = (1/inputeData).toFixed(3);
-					this.result2 = (10/inputeData).toFixed(3);
-					this.result3 = (100/inputeData).toFixed(3);
-					this.result4 = inputeData;
-					this.result6 = (inputeData*lINg/kmINm).toFixed(3);
-					this.result7 = (kmINm*100/(inputeData*lINg)).toFixed(3);
-					this.result9 = (inputeData*lINag/kmINm).toFixed(3);
-					this.result10 = (kmINm*100/(inputeData*lINag)).toFixed(3);
-				}
-
-				if (select == 6){
-					this.result1 = (lINg/(inputeData*kmINm)).toFixed(3);
-					this.result2 = (lINg*10/(inputeData*kmINm)).toFixed(3);
-					this.result3 = (lINg*100/(inputeData*kmINm)).toFixed(3);
-					this.result4 = (inputeData*kmINm/lINg).toFixed(3);
-					this.result6 = inputeData;
-					this.result7 = (100/inputeData).toFixed(3);
-					this.result9 = (inputeData*gINag).toFixed(3);
-					this.result10 = (100/(inputeData*gINag)).toFixed(3);
-				}
-
-				if (select == 7){
-					this.result1 = (inputeData*lINg/kmINm/100).toFixed(3);
-					this.result2 = (inputeData*lINg/kmINm/10).toFixed(3);
-					this.result3 = (inputeData*lINg/kmINm).toFixed(3);
-					this.result4 = (kmINm*100/inputeData/lINg).toFixed(3);
-					this.result6 = (100/(inputeData)).toFixed(3);
-					this.result7 = inputeData;
-					this.result9 = (100/(inputeData*agINg)).toFixed(3);
-					this.result10 = (inputeData*agINg).toFixed(3);
-				}
-
-				if (select == 9){
-					this.result1 = (lINag/inputeData/kmINm).toFixed(3);
-					this.result2 = (10*lINag/inputeData/kmINm).toFixed(3);
-					this.result3 = (100*lINag/inputeData/kmINm).toFixed(3);
-					this.result4 = (inputeData*kmINm/lINag).toFixed(3);
-					this.result6 = (inputeData*agINg).toFixed(3);
-					this.result7 = (100/inputeData/agINg).toFixed(3);
-					this.result9 = inputeData;
-					this.result10 = (100/inputeData).toFixed(3);
-				}
-
-				if (select == 10){
-					this.result1 = (inputeData*lINag/kmINm/100).toFixed(3);
-					this.result2 = (inputeData*lINag/kmINm/10).toFixed(3);
-					this.result3 = (inputeData*lINag/kmINm).toFixed(3);
-					this.result4 = (100*kmINm/inputeData/lINag).toFixed(3);
-					this.result6 = (100/inputeData*agINg).toFixed(3);
-					this.result7 = (inputeData*gINag).toFixed(3);
-					this.result9 = (100/inputeData).toFixed(3);
-					this.result10 = inputeData;
-				}
-
-				if(inputeData=='' || !(inputeData*1>=0) || inputeData =='0'){
-					this.result1 ='0';
-					this.result2 ='0';
-					this.result3 ='0';
-					this.result4 ='0';
-					this.result6 ='0';
-					this.result7 ='0';
-					this.result9 ='0';
-					this.result10 ='0';
-				}
-			},		
+/*recalculation - перерасчет*/
+function recalculation(){
+	var select = $('#selectKm').val();
+	var inputData = $('#inputData').val();
+	//   из л на км в ...
+	if (select == 1){
+		$('#1').html(inputData); //л на км
+		$('#2').html((inputData*10).toFixed(3)); //л на 10 км
+		$('#3').html((inputData*100).toFixed(3));//л на 100 км
+		$('#4').html((1/inputData).toFixed(3)); // км на л
+		$('#5').html((mINkm/(inputData*gINl)).toFixed(3)); // миль на галлон (сша)
+		$('#6').html((100*(inputData*gINl)/mINkm).toFixed(3)); //галлонов на 100 миль (сша)
+		$('#7').html((mINkm/(inputData*agINl)).toFixed(3)); // миль на галлон (англия)
+		$('#8').html((100*(inputData*agINl)/mINkm).toFixed(3)); //галлонов на 100 миль (англия)
 		}
-	})
+	//из литров на 10 км в ...
+	if (select == 2){
+		$('#1').html((inputData/10).toFixed(3)); //л на км
+		$('#2').html(inputData); //л на 10 км
+		$('#3').html((inputData*10).toFixed(3)); //л на 100 км
+		$('#4').html((10/inputData).toFixed(3)); // км на л
+		$('#5').html((mINkm*10/(inputData*gINl)).toFixed(3)); // миль на галлон (сша)
+		$('#6').html((10*(inputData*gINl)/mINkm).toFixed(3)); //галлонов на 100 миль (сша)
+		$('#7').html((mINkm*10/(inputData*agINl)).toFixed(3)); // миль на галлон (англия)
+		$('#8').html((10*(inputData*agINl)/mINkm).toFixed(3)); //галлонов на 100 миль (англия)
+		}
+
+	//из литров на 100 км в ...
+	if (select == 3){
+		$('#1').html((inputData/100).toFixed(3)); //л на км
+		$('#2').html((inputData/10).toFixed(3)); //л на 10 км
+		$('#3').html(inputData); //л на 100 км
+		$('#4').html((100/inputData).toFixed(3)); // км на л
+		$('#5').html((mINkm*100/(inputData*gINl)).toFixed(3)); // миль на галлон (сша)
+		$('#6').html(((inputData*gINl)/mINkm).toFixed(3)); //галлонов на 100 миль (сша)
+		$('#7').html((mINkm*100/(inputData*agINl)).toFixed(3)); // миль на галлон (англия)
+		$('#8').html(((inputData*agINl)/mINkm).toFixed(3)); //галлонов на 100 миль (англия)
+		}
+
+	if (select == 4){
+		$('#1').html((1/inputData).toFixed(3));
+		$('#2').html((10/inputData).toFixed(3));
+		$('#3').html((100/inputData).toFixed(3));
+		$('#4').html(inputData);
+		$('#5').html((inputData*lINg/kmINm).toFixed(3));
+		$('#6').html((kmINm*100/(inputData*lINg)).toFixed(3));
+		$('#7').html((inputData*lINag/kmINm).toFixed(3));
+		$('#8').html((kmINm*100/(inputData*lINag)).toFixed(3));
+		}
+
+	if (select == 5){
+		$('#1').html((lINg/(inputData*kmINm)).toFixed(3));
+		$('#2').html((lINg*10/(inputData*kmINm)).toFixed(3));
+		$('#3').html((lINg*100/(inputData*kmINm)).toFixed(3));
+		$('#4').html((inputData*kmINm/lINg).toFixed(3));
+		$('#5').html(inputData);
+		$('#6').html((100/inputData).toFixed(3));
+		$('#7').html((inputData*gINag).toFixed(3));
+		$('#8').html((100/(inputData*gINag)).toFixed(3));
+		}
+
+	if (select == 6){
+		$('#1').html((inputData*lINg/kmINm/100).toFixed(3));
+		$('#2').html((inputData*lINg/kmINm/10).toFixed(3));
+		$('#3').html((inputData*lINg/kmINm).toFixed(3));
+		$('#4').html((kmINm*100/inputData/lINg).toFixed(3));
+		$('#5').html((100/(inputData)).toFixed(3));
+		$('#6').html(inputData);
+		$('#7').html((100/(inputData*agINg)).toFixed(3));
+		$('#8').html((inputData*agINg).toFixed(3));
+		}
+
+	if (select == 7){
+		$('#1').html((lINag/inputData/kmINm).toFixed(3));
+		$('#2').html((10*lINag/inputData/kmINm).toFixed(3));
+		$('#3').html((100*lINag/inputData/kmINm).toFixed(3));
+		$('#4').html((inputData*kmINm/lINag).toFixed(3));
+		$('#5').html((inputData*agINg).toFixed(3));
+		$('#6').html((100/inputData/agINg).toFixed(3));
+		$('#7').html(inputData);
+		$('#8').html((100/inputData).toFixed(3));
+		}
+
+	if (select == 8){
+		$('#1').html((inputData*lINag/kmINm/100).toFixed(3));
+		$('#2').html((inputData*lINag/kmINm/10).toFixed(3));
+		$('#3').html((inputData*lINag/kmINm).toFixed(3));
+		$('#4').html((100*kmINm/inputData/lINag).toFixed(3));
+		$('#5').html((100/inputData*agINg).toFixed(3));
+		$('#6').html((inputData*gINag).toFixed(3));
+		$('#7').html((100/inputData).toFixed(3));
+		$('#8').html(inputData);
+		}
+
+	if (!(inputData>0)){
+		$('.data-result').html(0);
+		}		
+};
