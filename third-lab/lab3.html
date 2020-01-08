@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <title>Конвертеры единиц</title>
+</head>
+
+<body>
+<div id="content">
+    <h1>Конвертер расхода топлива<br>ASP.NET MVC</h1>
+    <div id="label-inputData">Исходные данные:</div>
+    <div id='form-data'>
+        <input type="text" name="inputData" id="inputData">
+        <select id='selectKm'>
+        </select>
+    </div>
+    <div id='result'>
+        <p class='label-result'><b>Метрический:</b></p>
+        <div class='poles-result'>
+            <div>
+                <div class='data-result' id='1'></div><span>Литров на км</span>
+            </div>
+            <div>
+                <div class='data-result' id='2'></div><span>Литров на 10 км</span>
+            </div>
+            <div>
+                <div class='data-result' id='3'></div><span>Литров на 100 км</span>
+            </div>
+            <div>
+                <div class='data-result' id='4'></div><span>Километров на литр</span>
+            </div>
+        </div>
+        <hr>
+        <p class='label-result'><b>US (США):</b></p>
+        <div class='poles-result'>
+            <div>
+                <div class='data-result' id='5'></div><span>Миль на галон</span>
+            </div>
+            <div>
+                <div class='data-result' id='6'></div><span>Галонов на 100 миль</span>
+            </div>
+        </div>
+        <hr>
+        <p class='label-result'><b>UK (Англия):</b></p>
+        <div class='poles-result'>
+            <div>
+                <div class='data-result' id='7'></div><span>Миль на галон</span>
+            </div>
+            <div>
+                <div class='data-result' id='8'></div><span>Галонов на 100 миль</span>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div id='back'>
+        <a href="../index.html">Назад</a>
+    </div>
+</div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+<script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>

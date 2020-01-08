@@ -9,8 +9,8 @@
 
 <body>
     <div id="content">
-        <h1>Конвертор расхода топлива</h1>
-        <div id="lable-inputData">Исходные данные:</div>
+        <h1>Конвертер расхода топлива<br>vue.js</h1>
+        <div id="label-inputData">Исходные данные:</div>
         <div id='form-data'>
             <input type="text" name="inputData" v-on:input="recalculation" id="inputData">
             <select id='selectKm' v-on:click="recalculation">
@@ -20,7 +20,7 @@
             </select>
         </div>
         <div id='result'>
-            <p class='lable-result'><b>Метрический:</b></p>
+            <p class='label-result'><b>Метрический:</b></p>
             <div class='poles-result'>
                 <div>
                     <div class='data-result'>{{result1}}</div><span>Литров на км</span>
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <hr>
-            <p class='lable-result'><b>US (США):</b></p>
+            <p class='label-result'><b>US (США):</b></p>
             <div class='poles-result'>
                 <div>
                     <div class='data-result'>{{result6}}</div><span>Миль на галон</span>
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <hr>
-            <p class='lable-result'><b>UK (Англия):</b></p>
+            <p class='label-result'><b>UK (Англия):</b></p>
             <div class='poles-result'>
                 <div>
                     <div class='data-result'>{{result9}}</div><span>Миль на галон</span>
